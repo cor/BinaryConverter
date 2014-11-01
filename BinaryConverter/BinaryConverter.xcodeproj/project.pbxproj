@@ -13,6 +13,7 @@
 		872249BA1A056DA9007DA3E7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 872249B91A056DA9007DA3E7 /* Images.xcassets */; };
 		872249BD1A056DA9007DA3E7 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 872249BB1A056DA9007DA3E7 /* LaunchScreen.xib */; };
 		872249C91A056DA9007DA3E7 /* BinaryConverterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 872249C81A056DA9007DA3E7 /* BinaryConverterTests.swift */; };
+		872249D31A056DFD007DA3E7 /* BinaryFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 872249D21A056DFD007DA3E7 /* BinaryFunctions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		872249C21A056DA9007DA3E7 /* BinaryConverterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BinaryConverterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		872249C71A056DA9007DA3E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		872249C81A056DA9007DA3E7 /* BinaryConverterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinaryConverterTests.swift; sourceTree = "<group>"; };
+		872249D21A056DFD007DA3E7 /* BinaryFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BinaryFunctions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 			children = (
 				872249B21A056DA9007DA3E7 /* AppDelegate.swift */,
 				872249B41A056DA9007DA3E7 /* ViewController.swift */,
+				872249D21A056DFD007DA3E7 /* BinaryFunctions.swift */,
 				872249B61A056DA9007DA3E7 /* Main.storyboard */,
 				872249B91A056DA9007DA3E7 /* Images.xcassets */,
 				872249BB1A056DA9007DA3E7 /* LaunchScreen.xib */,
@@ -214,6 +217,7 @@
 			files = (
 				872249B51A056DA9007DA3E7 /* ViewController.swift in Sources */,
 				872249B31A056DA9007DA3E7 /* AppDelegate.swift in Sources */,
+				872249D31A056DFD007DA3E7 /* BinaryFunctions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
