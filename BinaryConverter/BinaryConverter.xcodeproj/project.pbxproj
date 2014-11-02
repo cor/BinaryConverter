@@ -38,6 +38,7 @@
 		872249C71A056DA9007DA3E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		872249C81A056DA9007DA3E7 /* BinaryConverterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinaryConverterTests.swift; sourceTree = "<group>"; };
 		872249D21A056DFD007DA3E7 /* BinaryFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BinaryFunctions.swift; sourceTree = "<group>"; };
+		872665781A06889E003BA841 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +87,7 @@
 				872249B91A056DA9007DA3E7 /* Images.xcassets */,
 				872249BB1A056DA9007DA3E7 /* LaunchScreen.xib */,
 				872249B01A056DA9007DA3E7 /* Supporting Files */,
+				872665781A06889E003BA841 /* MyPlayground.playground */,
 			);
 			path = BinaryConverter;
 			sourceTree = "<group>";
@@ -409,6 +411,7 @@
 				872249CE1A056DA9007DA3E7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		872249CF1A056DA9007DA3E7 /* Build configuration list for PBXNativeTarget "BinaryConverterTests" */ = {
 			isa = XCConfigurationList;
@@ -417,6 +420,7 @@
 				872249D11A056DA9007DA3E7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -14,65 +14,32 @@ class ViewController: UIViewController {
     @IBOutlet var decimalOutlet: UITextField!
     
     func binaryTextChanged() {
-        if let binaryText = binaryOutlet.text {
-            
-            var actualBinaryText = binaryText // variable that contains filtered version of the outlet
-            deleteNonBinaryCharacters(fromString: &actualBinaryText) // delete non binary characters from actualBinaryText
-            
-            
-            if countElements(actualBinaryText) > 10 {
-                while countElements(actualBinaryText) > 10 {
-                    actualBinaryText = dropLast(actualBinaryText)
-                }
-            }
-            if !actualBinaryText.isEmpty {
-                
-                if let actualBinaryNumber = actualBinaryText.toInt() {
-                    
-                    if actualBinaryNumber >= 1111111111 {
-                        binaryOutlet.text = "1111111111"
-                        decimalOutlet.text = "1023"
-                    } else {
-                        
-                        let decimalValue = getDecimal(fromBinary: actualBinaryNumber)
-                        decimalOutlet.text = "\(decimalValue)"
-                        binaryOutlet.text = actualBinaryText
-                    }
-                    
-                }
-                
+        
+        if var binaryInput = binaryOutlet.text {
+            deleteNonBinaryCharacters(fromString: &binaryInput) // filter non binary characters
+            if !binaryInput.isEmpty {
+                binaryOutlet.text = binaryInput
+                decimalOutlet.text = "\(getNumber(fromString: binaryInput, inNumberSystem: 2))"
             } else {
+                binaryOutlet.text = ""
                 decimalOutlet.text = ""
             }
-            
         }
+        
+        
     }
     
     func decimalTextChanged() {
-        if let decimalText = decimalOutlet.text {
-            var actualDecimalText = decimalText
-            deleteNonDecimalCharacters(fromString: &actualDecimalText)
-            
-            if !actualDecimalText.isEmpty {
-                
-                if let actualDecimalNumber = actualDecimalText.toInt() {
-                    
-                    // prevent exceeding the max integer size
-                    if actualDecimalNumber >= 1023 {
-                        let binaryValue = getBinary(fromInt: 1023)
-                        decimalOutlet.text = "1023"
-                        binaryOutlet.text = "\(binaryValue)"
-                    } else {
-                        let binaryValue = getBinary(fromInt: actualDecimalNumber)
-                        decimalOutlet.text = "\(actualDecimalNumber)"
-                        binaryOutlet.text = "\(binaryValue)"
-                    }
-                
-                }
+        
+        if var decimalInput = decimalOutlet.text {
+            deleteNonDecimalCharacters(fromString: &decimalInput)
+            if !decimalInput.isEmpty {
+                decimalOutlet.text = decimalInput
+                binaryOutlet.text = getString(fromNumber: decimalInput.toInt()!, inNumberSystem: 2)
             } else {
                 binaryOutlet.text = ""
+                decimalOutlet.text = ""
             }
-            
         }
     }
     

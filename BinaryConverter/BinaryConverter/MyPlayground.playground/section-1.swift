@@ -53,7 +53,7 @@ func getString(var fromNumber numberInput: Int, inNumberSystem numberSystem: Int
         
         let remainder = numberInput % numberSystem
         
-        numberInput = (numberInput - remainder) / numberSystem
+        numberInput = (remainder - remainder) / numberSystem
         
         result = "\(getCharacterFromNumber(remainder))" + result // add the new character to the beginning of the string
     }
@@ -70,36 +70,12 @@ func getCharacterFromNumber(number : Int) -> String {
     let valueIsSmallerThan10 = number < 10 // if the value is smaller than 10 we can just use numbers
     
     let unicodeBase = UnicodeScalar(valueIsSmallerThan10 ? "0" : "A") // the base number, if it's smaller than 10 use 0-9, if it's bigger than 9 use A-Z
-    
+        
     let unicodeCharAsInt: UInt32 = unicodeBase.value + (valueIsSmallerThan10 ? number : number - 10) // the Int value for the Unicode character
-    
+        
     let unicodeChar = String(UnicodeScalar(unicodeCharAsInt)) //The actual character that is made using the Int value
     
     return unicodeChar
 }
 
 
-
-
-func deleteNonBinaryCharacters(inout fromString binaryString: String) {
-    var goodString: String = ""
-    for character in binaryString {
-        if character == "0" || character == "1" {
-            goodString.append(character)
-        }
-    }
-    
-    binaryString = goodString
-}
-
-func deleteNonDecimalCharacters(inout fromString decimalString: String) {
-    var goodString: String = ""
-    for character in decimalString {
-        // check if the caracter is a Int
-        if String(character).toInt() != nil {
-            goodString.append(character)
-        }
-    }
-    
-    decimalString = goodString
-}
