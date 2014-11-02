@@ -23,28 +23,36 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2tB-CX-pDY">
-                                <rect key="frame" x="0.0" y="137" width="600" height="86"/>
+                                <rect key="frame" x="0.0" y="137" width="600" height="151"/>
                                 <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Decimal" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dZ2-xT-Jyk">
-                                        <rect key="frame" x="305" y="29" width="285" height="30"/>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Binary" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bHW-cB-CHH">
+                                        <rect key="frame" x="10" y="10" width="580" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" keyboardAppearance="alert" returnKeyType="go"/>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Binary" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bHW-cB-CHH">
-                                        <rect key="frame" x="10" y="29" width="285" height="30"/>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Decimal" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dZ2-xT-Jyk">
+                                        <rect key="frame" x="10" y="50" width="580" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" keyboardAppearance="alert" returnKeyType="go"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Hex" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Vuu-Bp-a31">
+                                        <rect key="frame" x="10" y="90" width="580" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
                                     </textField>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="dZ2-xT-Jyk" firstAttribute="centerY" secondItem="bHW-cB-CHH" secondAttribute="centerY" id="NCT-gm-qZw"/>
-                                    <constraint firstItem="dZ2-xT-Jyk" firstAttribute="leading" secondItem="bHW-cB-CHH" secondAttribute="trailing" constant="10" id="Qhf-Dh-4gg"/>
+                                    <constraint firstAttribute="trailing" secondItem="Vuu-Bp-a31" secondAttribute="trailing" constant="10" id="1bq-zC-vnn"/>
+                                    <constraint firstAttribute="trailing" secondItem="bHW-cB-CHH" secondAttribute="trailing" constant="10" id="5Pb-i4-tJu"/>
+                                    <constraint firstItem="Vuu-Bp-a31" firstAttribute="top" secondItem="dZ2-xT-Jyk" secondAttribute="bottom" constant="10" id="7oV-nd-ahl"/>
+                                    <constraint firstAttribute="trailing" secondItem="dZ2-xT-Jyk" secondAttribute="trailing" constant="10" id="C4u-88-Kyb"/>
+                                    <constraint firstItem="Vuu-Bp-a31" firstAttribute="leading" secondItem="2tB-CX-pDY" secondAttribute="leading" constant="10" id="D8O-Kc-RAS"/>
+                                    <constraint firstItem="dZ2-xT-Jyk" firstAttribute="top" secondItem="bHW-cB-CHH" secondAttribute="bottom" constant="10" id="Kg9-88-RK9"/>
+                                    <constraint firstItem="dZ2-xT-Jyk" firstAttribute="leading" secondItem="2tB-CX-pDY" secondAttribute="leading" constant="10" id="RBL-kK-ovs"/>
                                     <constraint firstItem="bHW-cB-CHH" firstAttribute="leading" secondItem="2tB-CX-pDY" secondAttribute="leading" constant="10" id="TqW-Rj-sB8"/>
-                                    <constraint firstItem="bHW-cB-CHH" firstAttribute="width" secondItem="dZ2-xT-Jyk" secondAttribute="width" priority="750" id="bSr-mN-FIW"/>
-                                    <constraint firstAttribute="centerY" secondItem="bHW-cB-CHH" secondAttribute="centerY" constant="-0.5" id="d71-yD-dIA"/>
-                                    <constraint firstAttribute="trailing" secondItem="dZ2-xT-Jyk" secondAttribute="trailing" constant="10" id="out-Oi-vHu"/>
-                                    <constraint firstAttribute="height" constant="86" id="uYI-TJ-Iqh"/>
+                                    <constraint firstItem="bHW-cB-CHH" firstAttribute="top" secondItem="2tB-CX-pDY" secondAttribute="top" constant="10" id="bDo-1a-PMU"/>
+                                    <constraint firstAttribute="height" constant="151" id="uYI-TJ-Iqh"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -61,6 +69,7 @@
                     <connections>
                         <outlet property="binaryOutlet" destination="bHW-cB-CHH" id="1cO-IW-HHd"/>
                         <outlet property="decimalOutlet" destination="dZ2-xT-Jyk" id="QAi-nI-xNz"/>
+                        <outlet property="hexOutlet" destination="Vuu-Bp-a31" id="TnU-61-n9H"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>

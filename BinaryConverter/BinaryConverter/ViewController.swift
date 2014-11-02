@@ -12,17 +12,20 @@ class ViewController: UIViewController {
 
     @IBOutlet var binaryOutlet: UITextField!
     @IBOutlet var decimalOutlet: UITextField!
+    @IBOutlet var hexOutlet: UITextField!
     
     func binaryTextChanged() {
         
         if var binaryInput = binaryOutlet.text {
-            deleteNonBinaryCharacters(fromString: &binaryInput) // filter non binary characters
+            deleteCharactersThatAreNotInNumberSystem(fromString: &binaryInput, 2)
             if !binaryInput.isEmpty {
                 binaryOutlet.text = binaryInput
                 decimalOutlet.text = "\(getNumber(fromString: binaryInput, inNumberSystem: 2))"
+                hexOutlet.text = getString(fromNumber: getNumber(fromString: binaryInput, inNumberSystem: 2), inNumberSystem: 16)
             } else {
                 binaryOutlet.text = ""
                 decimalOutlet.text = ""
+                hexOutlet.text = ""
             }
         }
         
@@ -32,17 +35,35 @@ class ViewController: UIViewController {
     func decimalTextChanged() {
         
         if var decimalInput = decimalOutlet.text {
-            deleteNonDecimalCharacters(fromString: &decimalInput)
+            deleteCharactersThatAreNotInNumberSystem(fromString: &decimalInput, 10)
             if !decimalInput.isEmpty {
                 decimalOutlet.text = decimalInput
                 binaryOutlet.text = getString(fromNumber: decimalInput.toInt()!, inNumberSystem: 2)
+                hexOutlet.text = getString(fromNumber: decimalInput.toInt()!, inNumberSystem: 16)
             } else {
                 binaryOutlet.text = ""
                 decimalOutlet.text = ""
+                hexOutlet.text = ""
             }
         }
     }
     
+    
+    func hexTextChanged() {
+        
+        if var hexInput = hexOutlet.text {
+            deleteCharactersThatAreNotInNumberSystem(fromString: &hexInput, 16)
+            if !hexInput.isEmpty {
+                hexOutlet.text = hexInput
+                decimalOutlet.text = "\(getNumber(fromString: hexInput, inNumberSystem: 16))"
+                binaryOutlet.text = getString(fromNumber: getNumber(fromString: hexInput, inNumberSystem: 16), inNumberSystem: 2)
+            } else {
+                binaryOutlet.text = ""
+                decimalOutlet.text = ""
+                hexOutlet.text = ""
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,6 +71,7 @@ class ViewController: UIViewController {
         
         binaryOutlet.addTarget(self, action: Selector("binaryTextChanged"), forControlEvents: UIControlEvents.EditingChanged)
         decimalOutlet.addTarget(self, action: Selector("decimalTextChanged"), forControlEvents: UIControlEvents.EditingChanged)
+        hexOutlet.addTarget(self, action: Selector("hexTextChanged"), forControlEvents: UIControlEvents.EditingChanged)
         
     }
 

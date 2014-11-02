@@ -13,7 +13,7 @@ func getNumber(fromString string: String, inNumberSystem numberSystem: Int) -> I
         
         let characterAtIndex: Character = Array(string)[indexOfCharacter] // the character that is at that index
         
-        let numberFromCharacter: Int = getNumberFromCharacter("\(characterAtIndex)")  // check if there's a number at that index
+        let numberFromCharacter: Int = getNumberFromCharacter("\(characterAtIndex)")!  // check if there's a number at that index
             
         if (numberFromCharacter < numberSystem) {
             // add the value for that character to the result
@@ -74,7 +74,7 @@ func getCharacterFromNumber(number: Int) -> String {
 }
 
 
-func getNumberFromCharacter(character: String) -> Int {
+func getNumberFromCharacter(character: String) -> Int? {
     
     // iterate over 0-9
     let unicodeBase0: UnicodeScalar = UnicodeScalar("0")
@@ -102,39 +102,23 @@ func getNumberFromCharacter(character: String) -> Int {
         
     }
     
-    
-    // if we reach this point, the character is invalid
-    println("error, invalid character given at numberFromCharacter")
-    return 0
+    return nil
 }
 
-
-
-func deleteNonBinaryCharacters(inout fromString binaryString: String) {
-    var goodString: String = ""
-    for character in binaryString {
-        if character == "0" || character == "1" {
-            goodString.append(character)
-        }
-    }
-    
-    binaryString = goodString
-}
-
-func deleteNonDecimalCharacters(inout fromString decimalString: String) {
-    var goodString: String = ""
-    for character in decimalString {
-        // check if the caracter is a Int
-        if String(character).toInt() != nil {
-            goodString.append(character)
-        }
-    }
-    
-    decimalString = goodString
-}
 
 func deleteCharactersThatAreNotInNumberSystem(inout fromString string: String, numberSystem: Int) {
-    // TODO: implement this
+    var result = ""
+    
+    
+    for character in string {
+        if let numberFromCharacter = getNumberFromCharacter("\(character)") {
+            if numberFromCharacter < numberSystem {
+                result.append(character)
+            }
+        }
+    }
+    
+    string = result
 }
 
 
