@@ -25,12 +25,12 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2tB-CX-pDY">
                                 <rect key="frame" x="0.0" y="137" width="600" height="86"/>
                                 <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dZ2-xT-Jyk">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Decimal" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dZ2-xT-Jyk">
                                         <rect key="frame" x="305" y="29" width="285" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" returnKeyType="go"/>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bHW-cB-CHH">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Binary" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bHW-cB-CHH">
                                         <rect key="frame" x="10" y="29" width="285" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" returnKeyType="go"/>
@@ -57,6 +57,10 @@
                             <constraint firstAttribute="trailing" secondItem="2tB-CX-pDY" secondAttribute="trailing" id="fbc-Sy-pca"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="binaryOutlet" destination="bHW-cB-CHH" id="1cO-IW-HHd"/>
+                        <outlet property="decimalOutlet" destination="dZ2-xT-Jyk" id="QAi-nI-xNz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>

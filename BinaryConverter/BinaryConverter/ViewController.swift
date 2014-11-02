@@ -10,9 +10,42 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet var binaryOutlet: UITextField!
+    @IBOutlet var decimalOutlet: UITextField!
+    
+    func binaryTextChanged() {
+        if let binaryText = binaryOutlet.text {
+            var actualBinaryText = binaryText // variable that contains filtered version of the outlet
+            deleteNonBinaryCharacters(fromString: &actualBinaryText) // delete non binary characters from actualBinaryText
+            binaryOutlet.text = actualBinaryText
+        } else {
+            println("empty")
+        }
+    }
+    
+    func decimalTextChanged() {
+        println("convert decimal to binary")
+    }
+    
+    func deleteNonBinaryCharacters(inout fromString binaryString: String) {
+        var goodString: String = ""
+        for character in binaryString {
+            if character == "0" || character == "1" {
+                goodString.append(character)
+            }
+        }
+        
+        binaryString = goodString
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        // fire binaryTextChanged when text changes
+        binaryOutlet.addTarget(self, action: Selector("binaryTextChanged"), forControlEvents: UIControlEvents.EditingChanged)
+        decimalOutlet.addTarget(self, action: Selector("decimalTextChanged"), forControlEvents: UIControlEvents.EditingChanged)
+        
     }
 
     override func didReceiveMemoryWarning() {
