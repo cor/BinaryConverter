@@ -15,16 +15,25 @@ class ViewController: UIViewController {
     
     func binaryTextChanged() {
         if let binaryText = binaryOutlet.text {
+            
             var actualBinaryText = binaryText // variable that contains filtered version of the outlet
             deleteNonBinaryCharacters(fromString: &actualBinaryText) // delete non binary characters from actualBinaryText
             binaryOutlet.text = actualBinaryText
-        } else {
-            println("empty")
+            if !actualBinaryText.isEmpty {
+                
+                if let actualBinaryNumber = actualBinaryText.toInt() {
+                    
+                    let decimalValue = getDecimal(fromBinary: actualBinaryNumber)
+                    decimalOutlet.text = "\(decimalValue)"
+                }
+            } else {
+                decimalOutlet.text = ""
+            }
+            
         }
     }
     
     func decimalTextChanged() {
-        println("convert decimal to binary")
     }
     
     func deleteNonBinaryCharacters(inout fromString binaryString: String) {
