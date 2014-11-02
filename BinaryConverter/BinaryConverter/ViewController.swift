@@ -13,6 +13,7 @@ class ViewController: UIViewController {
     @IBOutlet var binaryOutlet: UITextField!
     @IBOutlet var decimalOutlet: UITextField!
     @IBOutlet var hexOutlet: UITextField!
+    @IBOutlet var octalOutlet: UITextField!
     
     func binaryTextChanged() {
         
@@ -22,10 +23,12 @@ class ViewController: UIViewController {
                 binaryOutlet.text = binaryInput
                 decimalOutlet.text = "\(getNumber(fromString: binaryInput, inNumberSystem: 2))"
                 hexOutlet.text = getString(fromNumber: getNumber(fromString: binaryInput, inNumberSystem: 2), inNumberSystem: 16)
+                octalOutlet.text = getString(fromNumber: getNumber(fromString: binaryInput, inNumberSystem: 2), inNumberSystem: 8)
             } else {
                 binaryOutlet.text = ""
                 decimalOutlet.text = ""
                 hexOutlet.text = ""
+                octalOutlet.text = ""
             }
         }
         
@@ -40,10 +43,12 @@ class ViewController: UIViewController {
                 decimalOutlet.text = decimalInput
                 binaryOutlet.text = getString(fromNumber: decimalInput.toInt()!, inNumberSystem: 2)
                 hexOutlet.text = getString(fromNumber: decimalInput.toInt()!, inNumberSystem: 16)
+                octalOutlet.text = getString(fromNumber: decimalInput.toInt()!, inNumberSystem: 8)
             } else {
                 binaryOutlet.text = ""
                 decimalOutlet.text = ""
                 hexOutlet.text = ""
+                octalOutlet.text = ""
             }
         }
     }
@@ -57,10 +62,30 @@ class ViewController: UIViewController {
                 hexOutlet.text = hexInput
                 decimalOutlet.text = "\(getNumber(fromString: hexInput, inNumberSystem: 16))"
                 binaryOutlet.text = getString(fromNumber: getNumber(fromString: hexInput, inNumberSystem: 16), inNumberSystem: 2)
+                octalOutlet.text = getString(fromNumber: getNumber(fromString: hexInput, inNumberSystem: 16), inNumberSystem: 8)
             } else {
                 binaryOutlet.text = ""
                 decimalOutlet.text = ""
                 hexOutlet.text = ""
+                octalOutlet.text = ""
+            }
+        }
+    }
+    
+    
+    func octalTextChanged() {
+        if var octalInput = octalOutlet.text {
+            deleteCharactersThatAreNotInNumberSystem(fromString: &octalInput, 8)
+            if !octalInput.isEmpty {
+                octalOutlet.text = octalInput
+                decimalOutlet.text = "\(getNumber(fromString: octalInput, inNumberSystem: 8))"
+                binaryOutlet.text = getString(fromNumber: getNumber(fromString: octalInput, inNumberSystem: 8), inNumberSystem: 2)
+                hexOutlet.text = getString(fromNumber: getNumber(fromString: octalInput, inNumberSystem: 8), inNumberSystem: 16)
+            } else {
+                binaryOutlet.text = ""
+                decimalOutlet.text = ""
+                hexOutlet.text = ""
+                octalOutlet.text = ""
             }
         }
     }
@@ -72,6 +97,7 @@ class ViewController: UIViewController {
         binaryOutlet.addTarget(self, action: Selector("binaryTextChanged"), forControlEvents: UIControlEvents.EditingChanged)
         decimalOutlet.addTarget(self, action: Selector("decimalTextChanged"), forControlEvents: UIControlEvents.EditingChanged)
         hexOutlet.addTarget(self, action: Selector("hexTextChanged"), forControlEvents: UIControlEvents.EditingChanged)
+        octalOutlet.addTarget(self, action: Selector("octalTextChanged"), forControlEvents: UIControlEvents.EditingChanged)
         binaryOutlet.becomeFirstResponder()
         
     }
