@@ -18,14 +18,29 @@ class ViewController: UIViewController {
             
             var actualBinaryText = binaryText // variable that contains filtered version of the outlet
             deleteNonBinaryCharacters(fromString: &actualBinaryText) // delete non binary characters from actualBinaryText
-            binaryOutlet.text = actualBinaryText
+            
+            
+            if countElements(actualBinaryText) > 10 {
+                while countElements(actualBinaryText) > 10 {
+                    actualBinaryText = dropLast(actualBinaryText)
+                }
+            }
             if !actualBinaryText.isEmpty {
                 
                 if let actualBinaryNumber = actualBinaryText.toInt() {
                     
-                    let decimalValue = getDecimal(fromBinary: actualBinaryNumber)
-                    decimalOutlet.text = "\(decimalValue)"
+                    if actualBinaryNumber >= 1111111111 {
+                        binaryOutlet.text = "1111111111"
+                        decimalOutlet.text = "1023"
+                    } else {
+                        
+                        let decimalValue = getDecimal(fromBinary: actualBinaryNumber)
+                        decimalOutlet.text = "\(decimalValue)"
+                        binaryOutlet.text = actualBinaryText
+                    }
+                    
                 }
+                
             } else {
                 decimalOutlet.text = ""
             }
@@ -34,24 +49,38 @@ class ViewController: UIViewController {
     }
     
     func decimalTextChanged() {
+        if let decimalText = decimalOutlet.text {
+            var actualDecimalText = decimalText
+            deleteNonDecimalCharacters(fromString: &actualDecimalText)
+            
+            if !actualDecimalText.isEmpty {
+                
+                if let actualDecimalNumber = actualDecimalText.toInt() {
+                    
+                    // prevent exceeding the max integer size
+                    if actualDecimalNumber >= 1023 {
+                        let binaryValue = getBinary(fromInt: 1023)
+                        decimalOutlet.text = "1023"
+                        binaryOutlet.text = "\(binaryValue)"
+                    } else {
+                        let binaryValue = getBinary(fromInt: actualDecimalNumber)
+                        decimalOutlet.text = "\(actualDecimalNumber)"
+                        binaryOutlet.text = "\(binaryValue)"
+                    }
+                
+                }
+            } else {
+                binaryOutlet.text = ""
+            }
+            
+        }
     }
     
-    func deleteNonBinaryCharacters(inout fromString binaryString: String) {
-        var goodString: String = ""
-        for character in binaryString {
-            if character == "0" || character == "1" {
-                goodString.append(character)
-            }
-        }
-        
-        binaryString = goodString
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        // fire binaryTextChanged when text changes
         binaryOutlet.addTarget(self, action: Selector("binaryTextChanged"), forControlEvents: UIControlEvents.EditingChanged)
         decimalOutlet.addTarget(self, action: Selector("decimalTextChanged"), forControlEvents: UIControlEvents.EditingChanged)
         

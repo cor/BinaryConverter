@@ -45,5 +45,33 @@ func getBinary(var fromInt intNumber: Int) -> Int {
         intNumber /= 2
     }
     
-    return result.toInt()!
+    if result.toInt() != nil {
+        return result.toInt()!
+    } else {
+        println("error, invalid binary value")
+        return 0
+    }
+}
+
+func deleteNonBinaryCharacters(inout fromString binaryString: String) {
+    var goodString: String = ""
+    for character in binaryString {
+        if character == "0" || character == "1" {
+            goodString.append(character)
+        }
+    }
+    
+    binaryString = goodString
+}
+
+func deleteNonDecimalCharacters(inout fromString decimalString: String) {
+    var goodString: String = ""
+    for character in decimalString {
+        // check if the caracter is a Int
+        if String(character).toInt() != nil {
+            goodString.append(character)
+        }
+    }
+    
+    decimalString = goodString
 }
