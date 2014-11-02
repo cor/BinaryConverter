@@ -72,6 +72,7 @@ class ViewController: UIViewController {
         binaryOutlet.addTarget(self, action: Selector("binaryTextChanged"), forControlEvents: UIControlEvents.EditingChanged)
         decimalOutlet.addTarget(self, action: Selector("decimalTextChanged"), forControlEvents: UIControlEvents.EditingChanged)
         hexOutlet.addTarget(self, action: Selector("hexTextChanged"), forControlEvents: UIControlEvents.EditingChanged)
+        binaryOutlet.becomeFirstResponder()
         
     }
 
