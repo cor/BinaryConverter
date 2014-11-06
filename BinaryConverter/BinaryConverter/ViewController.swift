@@ -15,6 +15,7 @@ class ViewController: UIViewController {
     @IBOutlet var hexOutlet: UITextField!
     @IBOutlet var octalOutlet: UITextField!
     
+    /// function that gets called when the binaryOutlet's text property gets updated
     func binaryTextChanged() {
         
         if var binaryInput = binaryOutlet.text {
@@ -25,16 +26,14 @@ class ViewController: UIViewController {
                 hexOutlet.text = getString(fromNumber: getNumber(fromString: binaryInput, inNumberSystem: 2), inNumberSystem: 16)
                 octalOutlet.text = getString(fromNumber: getNumber(fromString: binaryInput, inNumberSystem: 2), inNumberSystem: 8)
             } else {
-                binaryOutlet.text = ""
-                decimalOutlet.text = ""
-                hexOutlet.text = ""
-                octalOutlet.text = ""
+                clearAllOutlets()
             }
         }
         
         
     }
     
+    /// function that gets called when the decimalOutlet's text property gets updated
     func decimalTextChanged() {
         
         if var decimalInput = decimalOutlet.text {
@@ -45,15 +44,13 @@ class ViewController: UIViewController {
                 hexOutlet.text = getString(fromNumber: decimalInput.toInt()!, inNumberSystem: 16)
                 octalOutlet.text = getString(fromNumber: decimalInput.toInt()!, inNumberSystem: 8)
             } else {
-                binaryOutlet.text = ""
-                decimalOutlet.text = ""
-                hexOutlet.text = ""
-                octalOutlet.text = ""
+                clearAllOutlets()
             }
         }
     }
     
     
+    /// function that gets called when the hexOutlet's text property gets updated
     func hexTextChanged() {
         
         if var hexInput = hexOutlet.text {
@@ -64,15 +61,13 @@ class ViewController: UIViewController {
                 binaryOutlet.text = getString(fromNumber: getNumber(fromString: hexInput, inNumberSystem: 16), inNumberSystem: 2)
                 octalOutlet.text = getString(fromNumber: getNumber(fromString: hexInput, inNumberSystem: 16), inNumberSystem: 8)
             } else {
-                binaryOutlet.text = ""
-                decimalOutlet.text = ""
-                hexOutlet.text = ""
-                octalOutlet.text = ""
+                clearAllOutlets()
             }
         }
     }
     
     
+    /// function that gets called when the octalOutlet's text property gets updated
     func octalTextChanged() {
         if var octalInput = octalOutlet.text {
             deleteCharactersThatAreNotInNumberSystem(fromString: &octalInput, 8)
@@ -82,12 +77,17 @@ class ViewController: UIViewController {
                 binaryOutlet.text = getString(fromNumber: getNumber(fromString: octalInput, inNumberSystem: 8), inNumberSystem: 2)
                 hexOutlet.text = getString(fromNumber: getNumber(fromString: octalInput, inNumberSystem: 8), inNumberSystem: 16)
             } else {
-                binaryOutlet.text = ""
-                decimalOutlet.text = ""
-                hexOutlet.text = ""
-                octalOutlet.text = ""
+                clearAllOutlets()
             }
         }
+    }
+    
+    /// set the text property of all outlets to an empty string
+    func clearAllOutlets() {
+        binaryOutlet.text = ""
+        decimalOutlet.text = ""
+        hexOutlet.text = ""
+        octalOutlet.text = ""
     }
     
     override func viewDidLoad() {
