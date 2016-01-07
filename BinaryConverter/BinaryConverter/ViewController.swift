@@ -19,7 +19,7 @@ class ViewController: UIViewController {
     func binaryTextChanged() {
         
         if var binaryInput = binaryOutlet.text {
-            deleteCharactersThatAreNotInNumberSystem(fromString: &binaryInput, 2)
+            deleteCharactersThatAreNotInNumberSystem(fromString: &binaryInput, numberSystem: 2)
             if !binaryInput.isEmpty {
                 binaryOutlet.text = binaryInput
                 decimalOutlet.text = "\(getNumber(fromString: binaryInput, inNumberSystem: 2))"
@@ -37,12 +37,12 @@ class ViewController: UIViewController {
     func decimalTextChanged() {
         
         if var decimalInput = decimalOutlet.text {
-            deleteCharactersThatAreNotInNumberSystem(fromString: &decimalInput, 10)
+            deleteCharactersThatAreNotInNumberSystem(fromString: &decimalInput, numberSystem: 10)
             if !decimalInput.isEmpty {
                 decimalOutlet.text = decimalInput
-                binaryOutlet.text = getString(fromNumber: decimalInput.toInt()!, inNumberSystem: 2)
-                hexOutlet.text = getString(fromNumber: decimalInput.toInt()!, inNumberSystem: 16)
-                octalOutlet.text = getString(fromNumber: decimalInput.toInt()!, inNumberSystem: 8)
+                binaryOutlet.text = getString(fromNumber: Int(decimalInput)!, inNumberSystem: 2)
+                hexOutlet.text = getString(fromNumber: Int(decimalInput)!, inNumberSystem: 16)
+                octalOutlet.text = getString(fromNumber: Int(decimalInput)!, inNumberSystem: 8)
             } else {
                 clearAllOutlets()
             }
@@ -54,7 +54,7 @@ class ViewController: UIViewController {
     func hexTextChanged() {
         
         if var hexInput = hexOutlet.text {
-            deleteCharactersThatAreNotInNumberSystem(fromString: &hexInput, 16)
+            deleteCharactersThatAreNotInNumberSystem(fromString: &hexInput, numberSystem: 16)
             if !hexInput.isEmpty {
                 hexOutlet.text = hexInput
                 decimalOutlet.text = "\(getNumber(fromString: hexInput, inNumberSystem: 16))"
@@ -70,7 +70,7 @@ class ViewController: UIViewController {
     /// function that gets called when the octalOutlet's text property gets updated
     func octalTextChanged() {
         if var octalInput = octalOutlet.text {
-            deleteCharactersThatAreNotInNumberSystem(fromString: &octalInput, 8)
+            deleteCharactersThatAreNotInNumberSystem(fromString: &octalInput, numberSystem: 8)
             if !octalInput.isEmpty {
                 octalOutlet.text = octalInput
                 decimalOutlet.text = "\(getNumber(fromString: octalInput, inNumberSystem: 8))"
