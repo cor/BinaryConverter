@@ -59,14 +59,14 @@
                                     <constraint firstItem="Vuu-Bp-a31" firstAttribute="top" secondItem="dZ2-xT-Jyk" secondAttribute="bottom" constant="10" id="wpy-ei-J7O"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="BinaryConverter" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IG8-7Q-33u">
-                                <rect key="frame" x="215" y="50" width="170" height="29"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BinaryConverter" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IG8-7Q-33u">
+                                <rect key="frame" x="214" y="50" width="173" height="29"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.41558123404637476" green="0.68822995580808088" blue="0.61051266927393033" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.18823529411764706" green="0.24705882352941178" blue="0.62352941176470589" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="IG8-7Q-33u" firstAttribute="centerX" secondItem="2tB-CX-pDY" secondAttribute="centerX" id="5we-52-AYx"/>
                             <constraint firstItem="2tB-CX-pDY" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="P0x-BY-4vA"/>
@@ -85,6 +85,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="627" y="462"/>
         </scene>
     </scenes>
 </document>
