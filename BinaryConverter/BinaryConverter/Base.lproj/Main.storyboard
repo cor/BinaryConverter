@@ -65,15 +65,31 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="github.com/cor/BinaryConverter" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WRP-Ri-PX1">
+                                <rect key="frame" x="177" y="309" width="246" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  Copyright (c) 2014 Cor Pruijs. All rights reserved." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="Kq8-ub-Wyr">
+                                <rect key="frame" x="109" y="350" width="383" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.18823529411764706" green="0.24705882352941178" blue="0.62352941176470589" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="IG8-7Q-33u" firstAttribute="centerX" secondItem="2tB-CX-pDY" secondAttribute="centerX" id="5we-52-AYx"/>
                             <constraint firstItem="2tB-CX-pDY" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="P0x-BY-4vA"/>
                             <constraint firstItem="2tB-CX-pDY" firstAttribute="width" secondItem="kh9-bI-dsS" secondAttribute="width" id="PvS-LK-Fhq"/>
+                            <constraint firstItem="WRP-Ri-PX1" firstAttribute="top" secondItem="2tB-CX-pDY" secondAttribute="bottom" id="StW-sI-Tdb"/>
                             <constraint firstItem="2tB-CX-pDY" firstAttribute="top" secondItem="IG8-7Q-33u" secondAttribute="bottom" constant="30" id="YGo-Fy-DW9"/>
+                            <constraint firstItem="Kq8-ub-Wyr" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="ed3-zQ-lV8"/>
                             <constraint firstItem="IG8-7Q-33u" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="30" id="fGb-vw-wGU"/>
+                            <constraint firstItem="WRP-Ri-PX1" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="fWc-6C-VdP"/>
                             <constraint firstAttribute="trailing" secondItem="2tB-CX-pDY" secondAttribute="trailing" id="fbc-Sy-pca"/>
+                            <constraint firstItem="Kq8-ub-Wyr" firstAttribute="top" secondItem="WRP-Ri-PX1" secondAttribute="bottom" constant="20" id="wKT-n2-Ekw"/>
                         </constraints>
                     </view>
                     <connections>
